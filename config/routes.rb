@@ -1,4 +1,6 @@
 KillerQuestions::Application.routes.draw do
+  get "tags/index"
+
   resources :posts
 
 
@@ -51,7 +53,11 @@ KillerQuestions::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'posts#index'
+  root :to => "top#index"
+  get "/create" => 'create#index'
+  get "/post" => "posts#index"
+  get "tags/:tag" => 'top#index', as: :tag
+  get "/tags" => 'tags#index'
 
   # See how all your routes lay out with "rake routes"
 

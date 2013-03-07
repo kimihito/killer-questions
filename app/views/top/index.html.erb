@@ -1,0 +1,29 @@
+<% content_for(:title) do %>
+  トップ
+<% end %>
+<div class="page-header">
+  <h2>あなたの質問力を投稿しよう</h2>
+  <%= link_to "あなたがした質問を投稿する", new_post_path,:class => 'btn btn-success' %>
+</div>
+
+<%- model_class = Post -%>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:context) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:tag_list) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.context %></td>
+        <td><%= post.created_at %></td>
+        <td><%= raw post.tag_list.map{|t| link_to t, tag_path(t)}.join(', ') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
