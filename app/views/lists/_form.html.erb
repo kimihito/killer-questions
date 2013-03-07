@@ -1,0 +1,36 @@
+<div class="span3">
+  <h4>検証項目一覧</h4>
+  <% Post.all.each do |post| %>
+    <div class="page-header">
+      <div class="title"><%= post.title %></div>
+      <%=link_to "#copy",:class => "content-copy" do %>
+        <i class="icon-copy"></i>
+      <%end%>
+
+    </div>
+  <%end%>
+</div>
+
+<div class="span3">
+  <h4>検証項目リスト</h4>
+<%= form_for @list, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :content, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :content, :class => 'text_area' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                lists_path, :class => 'btn' %>
+  </div>
+<% end %>
+</div>

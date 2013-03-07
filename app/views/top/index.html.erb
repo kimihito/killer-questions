@@ -2,28 +2,26 @@
   トップ
 <% end %>
 <div class="page-header">
-  <h2>あなたの質問力を投稿しよう</h2>
-  <%= link_to "あなたがした質問を投稿する", new_post_path,:class => 'btn btn-success' %>
+  <h2>あなたが行った検証項目共有しよう</h2>
+  <%= link_to "あなたがした検証項目を投稿する", new_post_path,:class => 'btn btn-success' %>
 </div>
-
-<%- model_class = Post -%>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:context) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%= model_class.human_attribute_name(:tag_list) %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @posts.each do |post| %>
+<div class="span9">
+  <%- model_class = Post -%>
+  <h2>投稿された検証項目一覧</h2>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= post.title %></td>
-        <td><%= post.context %></td>
-        <td><%= post.created_at %></td>
-        <td><%= raw post.tag_list.map{|t| link_to t, tag_path(t)}.join(', ') %></td>
+        <th>検証項目</th>
+        <th>タグ</th>
       </tr>
-    <% end %>
+    </thead>
+    <tbody>
+    <% @posts.each do |post| %>
+      <td><%= link_to post.title, "posts/#{post.id}" %></td>
+      <td><%= raw post.tag_list.map{|t| link_to t, tag_path(t)}.join(', ') %></td>
+  </tr>
+<% end %>
   </tbody>
 </table>
+</div>
+

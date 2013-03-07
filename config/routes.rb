@@ -1,4 +1,9 @@
 KillerQuestions::Application.routes.draw do
+  resources :lists
+
+
+  get "list/index"
+
   get "tags/index"
 
   resources :posts
@@ -58,6 +63,7 @@ KillerQuestions::Application.routes.draw do
   get "/post" => "posts#index"
   get "tags/:tag" => 'top#index', as: :tag
   get "/tags" => 'tags#index'
+  get "/lists" => 'lists#index'
 
   # See how all your routes lay out with "rake routes"
 

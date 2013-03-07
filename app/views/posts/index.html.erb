@@ -8,7 +8,6 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:context) %></th>
       <th><%= model_class.human_attribute_name(:tag_list) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -18,7 +17,6 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
-        <td><%= post.context %></td>
         <td><%= post.tag_list %></td>
         <td><%= post.created_at %></td>
         <td>
@@ -34,3 +32,4 @@
     <% end %>
   </tbody>
 </table>
+

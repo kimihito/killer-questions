@@ -1,14 +1,8 @@
 <%= form_for @post, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label :title, :class => 'control-label' %>
+    <%= f.label :title, "検証項目", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :title, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :context, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :context, :class => 'text_area' %>
     </div>
   </div>
 

@@ -47,13 +47,16 @@
       <a class="brand" href="/">KillerQuestions</a>
       <div class="container nav-collapse">
         <ul class="nav">
-          <li><%= link_to "Link1", "/path1"  %></li>
-          <li><%= link_to "Link2", "/path2"  %></li>
-          <li><%= link_to "Link3", "/path3"  %></li>
+          <li><%= link_to "タグ一覧", "/path1"  %></li>
+          <li><%= link_to "検証項目リスト一覧", "/path2"  %></li>
+          <li><%= link_to "検証項目一覧", "/path3"  %></li>
         </ul>
         <ul class="nav pull-right">
           <li>
-          <%= link_to "投稿する", new_post_path,:class => 'btn btn-small btn-primary' %>
+          <%= link_to "質問リスト作成", new_list_path,:class => 'btn btn-warning' %>
+            </li>
+          <li>
+          <%= link_to "投稿する", new_post_path,:class => 'btn btn-primary' %>
             </li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -63,27 +66,10 @@
 
   <div class="container">
     <div class="row">
-      <div class="span9">
+      <div class="span12">
         <%= bootstrap_flash %>
         <%= yield %>
       </div>
-      <div class="span3">
-        <div class="well sidebar-nav">
-          <h3>Sidebar</h3>
-          <ul class="nav nav-list">
-            <li class="nav-header">Sidebar</li>
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
-          </ul>
-        </div><!--/.well -->
-          <div id="tag_cloud">
-           <h3> Tags </h3>
-            <% tag_cloud Post.tag_counts, %w[s,m,l] do |tag, css_class| %>
-              <%=link_to tag.name, tag_path(tag.name), class:css_class %>
-            <% end %>
-          </div>
-      </div><!--/span-->
     </div><!--/row-->
 
     <footer>
