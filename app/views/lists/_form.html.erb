@@ -1,5 +1,6 @@
-<div class="span3">
-  <h4>検証項目一覧</h4>
+
+<h4>検証項目一覧</h4>
+<div class="span3 scroll">
   <% Post.all.each do |post| %>
     <div class="page-header">
       <div class="title"><%= post.title %></div>
@@ -12,7 +13,10 @@
 </div>
 
 <div class="span3">
-  <h4>検証項目リスト</h4>
+</div>
+
+<h4>検証項目リスト</h4>
+<div class="span6">
 <%= form_for @list, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
@@ -26,11 +30,11 @@
       <%= f.text_area :content, :class => 'text_area' %>
     </div>
   </div>
-
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 lists_path, :class => 'btn' %>
   </div>
 <% end %>
+
 </div>
